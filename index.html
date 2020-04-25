@@ -383,8 +383,8 @@
 
 				<div class="form-row">
 
-					<div class="form-group ">
-						<label for="inputAddress2">&nbsp;&nbsp;&nbsp;&nbsp;Address (Autocomplete)</label>
+					<div class="form-group col-lg-12">
+						<label for="inputAddress2">Address (Autocomplete)</label>
 						<input type="text"  id="ip_useraddress"
 					onFocus="geolocate()"
 					type="text" class="form-control"   placeholder="floor,1234 Main St, country, postcode">
@@ -645,7 +645,7 @@ check_discount_expire();
              success: function(response){ 
                  console.log("safe...")
                 console.log(response)
-             }
+             },
              error: function (xhr, textStatus, error) {
                  console.log("safe...")
                 console.log(textStatus)
