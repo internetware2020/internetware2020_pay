@@ -372,17 +372,17 @@
 				
 					<div class="form-group col-md-4">
 						<label for="inputCity">Street</label>
-						<input class="field" id="ip_address1" disabled="true" />
+						<input class="field" id="ip_address1"   type="text" />
 					</div>
 				
 					<div class="form-group col-md-4">
 						<label for="inputCity">&nbsp;District</label>
-						<input class="field" id="ip_address2" disabled="true" />
+						<input class="field" id="ip_address2"   type="text" />
 					</div>
 				
 					<div class="form-group col-md-4">
 						<label for="inputCity">City</label>
-						<input class="field" id="ip_city" disabled="true" />
+						<input class="field" id="ip_city"   type="text" />
 					</div>
 				
 				</div>
@@ -393,19 +393,19 @@
 				
 					<div class="form-group col-md-4">
 						<label for="inputCity">State</label>
-						<input class="field" id="ip_state" disabled="true" />
+						<input class="field" id="ip_state"   type="text" />
 				
 					</div>
 				
 					<div class="form-group col-md-4">
 						<label for="inputCity">Country</label>
-						<input class="field" id="ip_country" disabled="true" />
+						<input class="field" id="ip_country"   type="text" />
 				
 					</div>
 				
 					<div class="form-group col-md-4">
 						<label for="inputZip">Zip</label>
-						<input class="field" id="ip_zip" disabled="true" />
+						<input class="field" id="ip_zip"  type="text" />
 					</div>
 				
 				</div>
@@ -437,12 +437,36 @@
             <div class="panel-body">
 				<div class="form-group">
 					<label class="control-label">Registration Fees</label>
-					<select class="form-control" type="text" name="ip_amount">
-						<option value="bird_student">1</option>
-						<option value="bird_full">2</option>
-						<option value="student" hidden>3</option>
-						<option value="full" hidden>4</option>
+
+					<select class="form-control should_expire" type="text" id="ip_amount">
+						<option data-discount=1 value="500">FullDelegate-earlybird-500&euro;</option>
+						<option data-discount=1 value="400">Student-earlybird-400&euro;</option>
+						<option data-discount=0 value="580" >FullDelegate-Standard-580&euro;</option>
+						<option data-discount=0 value="460" >Student-Standard-460&euro;</option>
 					</select>
+
+<script type="text/javascript">
+
+var check_discount_expire = function(){
+
+  var standard_time =new Date(Date.parse("2020-05-11 00:00:00 GMT-0000"));
+
+  var current_time  =new Date()
+
+  if (current_time> standard_time){
+
+    $(".should_expire option[data-discount=1]").each(function(i,ele){$(ele).remove() })
+
+  }else {
+    $(".should_expire option[data-discount=0]").each(function(i,ele){$(ele).remove() })
+
+
+  }
+}
+check_discount_expire();
+</script>
+
+          
 					
                 </div>
 
@@ -492,6 +516,7 @@
 
             <form  method="post"  id="paypalform" name="submit-to-google-sheet">
               <input type="hidden" name="paypal_ref" value="none_paypal_ref">
+              <input type="hidden" name="paypal_logstr" value="none_paypal_logstr">
               <input type="hidden" name="amount" value="0.01">
 
 				<input type="hidden" name="useraddress" value="none_1">
@@ -517,7 +542,7 @@
 
 	  <script>
 
-	window. submit_google_form=function(){	  
+	window. submit_google_form=function(pay_ref_str,pay_log_str){	  
 		const scriptURL ='https://script.google.com/macros/s/AKfycby2S4nCX68RxrFBJ3IKZvMt91JdVBlJNnct6TB45SjvSeSCUxo/exec'
 		// const scriptURL ='https://script.google.com/macros/s/11AKfycby2S4nCX68RxrFBJ3IKZvMt91JdVBlJNnct6TB45SjvSeSCUxo/exec'
 
@@ -548,7 +573,42 @@
 			}, 500)
 		}
 
-		showLoadingIndicator()
+
+
+
+  
+    // loading 
+    showLoadingIndicator()
+
+    // auto fill form 
+
+    $('#paypalform input[name=paypal_logstr]').first().val(pay_log_str)
+ 
+    $('#paypalform input[name=paypal_ref]').first().val(pay_ref_str)
+ 
+   var setform_field=function(search_name){
+
+      var inner_ele = $('#paypalform input[name="'+search_name+'"]')
+      
+      var outer_ele = $('#ip_'+search_name)
+      var outer_ele2 = $('#ip_'+search_name+" option:selected")
+
+      if ( outer_ele.length &&  inner_ele.length ) {
+        if (outer_ele.val() ) {
+          inner_ele .val(outer_ele.val() )
+        }else if(outer_ele2.val()){
+            inner_ele .val(outer_ele2.val() )
+        }
+
+      }
+     
+
+
+    }
+
+    $('#paypalform input[type=hidden]').each(function(e,v){
+      setform_field(v.name)
+    });
 
 
 		$.ajax({
@@ -558,18 +618,16 @@
            success: function(response)
            {
                showSuccessMessage(response); // show response from the php script.
-		   },
-			error: function (xhr, textStatus, error) {
-				var vv=textStatus + "-->submit google spreadsheet error!"
+    		   },
+    			 error: function (xhr, textStatus, error) {
+      				  var vv=textStatus + "-->submit google spreadsheet error!"
 
+        				showErrorMessage(vv)
+                        console.log('An error occurred.');
+                        console.log(xhr);
+                    },
 
-
-				showErrorMessage(vv)
-                console.log('An error occurred.');
-                console.log(xhr);
-            },
-
-		 });
+    		 });
 		 
 		// fetch(scriptURL, 
 		// 	{ 
@@ -607,7 +665,9 @@ paypal.Button.render({
     // See https://developer.paypal.com/docs/api/payments/#payment_create for the expected json parameters
 
     payment: function() {
-      var total  = $("input[name=amount]").val()
+      var total  = $("#ip_amount option:selected").val()
+
+      console.log("taota",total)
         return paypal.rest.payment.create(this.props.env, this.props.client, {
             transactions: [
                 {
@@ -637,9 +697,13 @@ paypal.Button.render({
     onAuthorize: function(data, actions) {
 
         return actions.payment.execute().then(function(param) {
+
+            var paypal_log_str= encodeURIComponent(JSON.stringify(param) )
+            var paypal_ref_id= encodeURIComponent(param.id )
+
             console.log('The payment was completed!');
-			submit_google_form()
-			console.log('form submit');
+			       submit_google_form(paypal_ref_id, paypal_log_str )
+			     console.log('form submit');
 
             //param is the json response
         });
@@ -751,7 +815,7 @@ function initAutocomplete() {
 
   // When the user selects an address from the drop-down, populate the
   // address fields in the form.
-  //autocomplete.addListener('place_changed', fillInAddress);
+  autocomplete.addListener('place_changed', fillInAddress);
 }
 
 function fillInAddress() {
