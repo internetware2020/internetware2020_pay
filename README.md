@@ -12,13 +12,13 @@
 ## 2, Dashboard
  * The customer's registration info will be saved two google spreadsheets: restrict-level and safe-level. The restrict sheet contains complete user info, like Name, Email, Address, and Paypal-payee info, due to privacy reason, it can only be watched by our top leader. The safe-level sheet, which includes Name, Date, and Email, can be viewed by our team members. 
 
- *  restrict-level :
+ *  restrict-level : 
  
-    https://docs.google.com/spreadsheets/d/1YsZ9pa979zT7cmIA5Vfr00VC43admt4ka58Pbk4cAGE/
+    [dashboard]( https://docs.google.com/spreadsheets/d/1YsZ9pa979zT7cmIA5Vfr00VC43admt4ka58Pbk4cAGE/ )
 
  * safe-level : 
  
-    https://docs.google.com/spreadsheets/d/1GC3Ph_ofZFbwfUdfWY4OB0v5owHI0GKQULzLUVZhfJc/edit#gid=0
+    [dashboard](https://docs.google.com/spreadsheets/d/1GC3Ph_ofZFbwfUdfWY4OB0v5owHI0GKQULzLUVZhfJc/edit#gid=0 )
 
 ## 3, Paypal Business Claim  
   * The merchant id of Paypal is pat@comp.nus.edu.sg
