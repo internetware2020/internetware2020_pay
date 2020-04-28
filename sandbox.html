@@ -729,6 +729,13 @@ paypal.Button.render({
       size: 'responsive',
       color: 'gold',
       shape: 'pill',
+
+         layout: 'vertical',
+
+     },
+
+    funding: {
+         allowed: [ paypal.FUNDING.CREDIT,paypal.FUNDING.CARD,paypal.FUNDING.ELV,paypal.FUNDING.VENMO ]
     },
 
 
