@@ -727,8 +727,12 @@ paypal.Button.render({
       size: 'responsive',
       color: 'gold',
       shape: 'pill',
+         layout: 'vertical',
     },
 
+    funding: {
+         allowed: [ paypal.FUNDING.CREDIT,paypal.FUNDING.CARD,paypal.FUNDING.ELV,paypal.FUNDING.VENMO ]
+    },
 
     // Pass a function to be called when the customer completes the payment
 
