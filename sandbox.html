@@ -590,22 +590,18 @@ check_discount_expire();
 
 		function showSuccessMessage (response) {
 			console.log('Success!', response)
-			setTimeout(() => {
 				$('.js-success-message').first().removeClass('is-hidden')
 				// $('.js-success-message').first().text("error.message")
 
 				$('.js-loading').first().addClass('is-hidden')
-			}, 500)
 		}
 
 		function showErrorMessage (error) {
 			console.error('Error!', error)
 			
-			setTimeout(() => {
 				$('.js-error-message').first().removeClass('is-hidden')
 				$('.js-error-message').first().text(error)
 				$('.js-loading').first().addClass('is-hidden')
-			}, 500)
 		}
 
 
