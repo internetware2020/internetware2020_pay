@@ -1,4 +1,4 @@
-# ICOST2020.github.io
+# APSEC2020.github.io
 
 #### A management to the registration process of the conference ICOST of 2020. 
 
@@ -14,11 +14,11 @@
 
  *  restrict-level : 
  
-    [dashboard]( https://docs.google.com/spreadsheets/d/1YsZ9pa979zT7cmIA5Vfr00VC43admt4ka58Pbk4cAGE/ )
+    [dashboard]( https://docs.google.com/spreadsheets/d/1RotMgZM3ZePnamsLFVhWNJK4QLSqk6ysz8CYTOLl_Xc/edit?usp=sharing )
 
  * safe-level : 
  
-    [dashboard](https://docs.google.com/spreadsheets/d/1GC3Ph_ofZFbwfUdfWY4OB0v5owHI0GKQULzLUVZhfJc/edit#gid=0 )
+    [dashboard](https://docs.google.com/spreadsheets/d/1kOX0u3hczU38lWLAbAx17V-D50RUE0NfWiSrR1CiWl4/edit?usp=sharing)
 
 ## 3, Paypal Business Claim  
   * The merchant id of Paypal is pat@comp.nus.edu.sg
@@ -26,7 +26,7 @@
 
 # Sandbox 
  * We publish the Sandbox page to try our demo without paying.
- https://icost2020.github.io/sandbox.html
+ https://APSEC2020.github.io/sandbox.html
 
 # Google Spreadsheet
  
