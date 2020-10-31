@@ -32,8 +32,7 @@
  
  |   |     safe-level     |   restrict-level   | C | ... |
 |---|:---------:|:-----:|:-:|:---:|
-| live | [safe-preview](https://docs.google.com/spreadsheets/d/1GC3Ph_ofZFbwfUdfWY4OB0v5owHI0GKQULzLUVZhfJc/edit?usp=sharing) |  [restrict-preview](https://docs.google.com/spreadsheets/d/1YsZ9pa979zT7cmIA5Vfr00VC43admt4ka58Pbk4cAGE/edit#gid=0)  |     |
-| sandbox | [safe-preview public](https://docs.google.com/spreadsheets/d/1vj-d8GaGfE0pqkSsnvDGmJmGACvTjsI7T8ZcVqOz_Qg/edit?usp=sharing) | [restrict_preview public](https://docs.google.com/spreadsheets/d/1yFlDSASpZAtpj0nDjx-i_cGmiya-PGZ-1TXqpQJsfDo/edit?usp=sharing) |   |     |
+| live | [safe-preview](https://docs.google.com/spreadsheets/d/1kOX0u3hczU38lWLAbAx17V-D50RUE0NfWiSrR1CiWl4/edit?usp=sharing) |  [restrict-preview](https://docs.google.com/spreadsheets/d/1RotMgZM3ZePnamsLFVhWNJK4QLSqk6ysz8CYTOLl_Xc/edit?usp=sharing)  |     |
 
 
 # Acknowdge 
