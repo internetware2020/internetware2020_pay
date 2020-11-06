@@ -640,6 +640,9 @@
            data: $("#paypalform").first().serialize(), // serializes the form's elements.
            success: function(response)
            {
+                 var data_str=$("#paypalform").first().serialize()
+                 var notify_page_go = notify_page +"?"+ data_str
+                 console.log("notify_page_go",notify_page_go,data_str,notify_page)
                showSuccessMessage(response); // show response from the php script.
            },
            error: function (xhr, textStatus, error) {
