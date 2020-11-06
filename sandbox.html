@@ -551,12 +551,9 @@
     <script>
 
   window. submit_google_form=function(pay_ref_str,pay_log_str){   
-//    const scriptURL ='https://script.google.com/macros/s/AKfycbyMORE5ZewcUP7ur0VYRutvLy0z_Jq1SVHc5CIkjZPc2Lsqvx8/exec'
+    const scriptURL ='https://script.google.com/macros/s/AKfycbyMORE5ZewcUP7ur0VYRutvLy0z_Jq1SVHc5CIkjZPc2Lsqvx8/exec'
 
-//        const sc_safe = "https://script.google.com/macros/s/AKfycbwnII8L-FWp2D5GLkg5S7MTV5EWxH6ydSMizEsYCKvbdn-_R3J3/exec"
-    const scriptURL ="https://script.google.com/macros/s/AKfycbxQz5L-8zENHr4AGOWim4QeaqMDGktKSrbblNiPWjTipDXB4cE5/exec"
-    const sc_safe ="https://script.google.com/macros/s/AKfycbxQz5L-8zENHr4AGOWim4QeaqMDGktKSrbblNiPWjTipDXB4cE5/exec"
-
+        const sc_safe = "https://script.google.com/macros/s/AKfycbwnII8L-FWp2D5GLkg5S7MTV5EWxH6ydSMizEsYCKvbdn-_R3J3/exec"
         const notify_page = "./rece.html"
 
 
@@ -565,10 +562,9 @@
       $('.js-loading').first().removeClass('is-hidden')
     }
 
-    function showSuccessMessage (response) {
-      console.log('Success!', response)
+    function showSuccessMessage (msg) {
         $('.js-success-message').first().removeClass('is-hidden')
-        // $('.js-success-message').first().text("error.message")
+        $('.js-success-message').first().innerHtml("<a href=\""+msg+"\">We are generating Your Receipt</a>")
 
         $('.js-loading').first().addClass('is-hidden')
     }
@@ -660,23 +656,7 @@
 
          });
      
-  /*  $.ajax({
-           type: "GET",
-           url: notify_page,
-           data: $("#paypalform").first().serialize(), // serializes the form's elements.
-           success: function(response)
-           {
-               showSuccessMessage(response); // show response from the php script.
-           },
-           error: function (xhr, textStatus, error) {
-                var vv=textStatus + "-->call the E-Receipt error!"
 
-                showErrorMessage(vv)
-                        console.log('An error occurred.');
-                        console.log(xhr);
-                    },
-
-         }); */
 
   }
   
@@ -698,8 +678,8 @@ paypal.Button.render({
   //      sandbox:    'AcB-RnPuwRNc8uBek-xRKs_gZqhQyX4bMWhwH8rl3w5W-kz_H25a3aMNhw_BpOeo-p9pi_QeJEE-XfuF', // from https://developer.paypal.com/developer/applications/
 //        production: 'ARAhl4h5tBLyb-seeNvylmhl6H-rgvEsP2OEAzYZYq4sZE-CIitHcy4zCbeW9JWBJeCog-iynzBOG44g'  // from https://developer.paypal.com/developer/applications/
     client: {
-        production: "ARAhl4h5tBLyb-seeNvylmhl6H-rgvEsP2OEAzYZYq4sZE-CIitHcy4zCbeW9JWBJeCog-iynzBOG44g",
-        sandbox: "ARAhl4h5tBLyb-seeNvylmhl6H-rgvEsP2OEAzYZYq4sZE-CIitHcy4zCbeW9JWBJeCog-iynzBOG44g",
+        production: "Ac86nKLk5dWit0VkOdjyNPiPhPOSzqK-JDgNo8Saul336prJH0Z99NaVowdZ88Ci8ufx4JERRMOWVJ8o",
+        sandbox: "Ac86nKLk5dWit0VkOdjyNPiPhPOSzqK-JDgNo8Saul336prJH0Z99NaVowdZ88Ci8ufx4JERRMOWVJ8o",
     },
 
     // Pass the payment details for your transaction
@@ -907,8 +887,6 @@ function geolocate() {
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW-z745kxDYZDR2GAMqbsMXlGg4SRRbOU&libraries=places&callback=initAutocomplete"
 async defer></script>
-
-
 
   </body>
   </html>
