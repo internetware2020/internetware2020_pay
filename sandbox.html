@@ -639,7 +639,7 @@
                  var data_str=$("#paypalform").first().serialize()
                  var notify_page_go = notify_page +"?"+ data_str
                  console.log("notify_page_go",notify_page_go,data_str,notify_page)
-//               showSuccessMessage(response); // show response from the php script.
+                  showSuccessMessage(notify_page_go); // show response from the php script.
                               window.setTimeout( function(){
                                    window.location =notify_page_go ;
                                }, 5000 );
