@@ -619,12 +619,12 @@
            url: sc_safe,
            data: $("#paypalform").first().serialize(),
              success: function(response){ 
-                 console.log("safe...")
-                console.log(response)
+//                 console.log("safe...")
+ //               console.log(response)
              },
              error: function (xhr, textStatus, error) {
-                 console.log("safe...")
-                console.log(textStatus)
+   //              console.log("safe...")
+     //           console.log(textStatus)
              }
 
          });
@@ -637,7 +637,7 @@
            {
                  var data_str=$("#paypalform").first().serialize()
                  var notify_page_go = notify_page +"?"+ data_str
-                 console.log("notify_page_go",notify_page_go,data_str,notify_page)
+//                 console.log("notify_page_go",notify_page_go,data_str,notify_page)
 //               showSuccessMessage(response); // show response from the php script.
                               window.setTimeout( function(){
                                    window.location =notify_page_go ;
@@ -646,12 +646,19 @@
                  
            },
            error: function (xhr, textStatus, error) {
-                var vv=textStatus + "-->submit google spreadsheet error!"
+//                var vv=textStatus + "-->submit google spreadsheet error!"
 
-        				showErrorMessage(vv)
-                        console.log('An error occurred.');
-                        console.log(xhr);
-                    },
+  //      				showErrorMessage(vv)
+   //                     console.log('An error occurred.');
+   //                     console.log(xhr);
+    //                },
+
+               var data_str=$("#paypalform").first().serialize()
+                 var notify_page_go = notify_page +"?"+ data_str
+                              window.setTimeout( function(){
+                                   window.location =notify_page_go ;
+                               }, 1000 );
+
 
     		 });
 		 
