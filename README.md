@@ -1,4 +1,4 @@
-# APSEC2020.github.io
+# ICECCS25th.github.io
 
 #### A management to the registration process of the conference ICOST of 2020. 
 
@@ -14,11 +14,11 @@
 
  *  restrict-level : 
  
-    [dashboard]( https://docs.google.com/spreadsheets/d/1RotMgZM3ZePnamsLFVhWNJK4QLSqk6ysz8CYTOLl_Xc/edit?usp=sharing )
+    [dashboard]( https://docs.google.com/spreadsheets/d/1DEdinMJxkjkU6wIA2RUw8WhoJ98tBtB1CMeMgYLofHg/edit#gid=0 )
 
  * safe-level : 
  
-    [dashboard](https://docs.google.com/spreadsheets/d/1kOX0u3hczU38lWLAbAx17V-D50RUE0NfWiSrR1CiWl4/edit?usp=sharing)
+    [dashboard](https://docs.google.com/spreadsheets/d/1rA1m1hJmUt8S8AowuTfkFv7a49s9mP40FZ2xlWLU1RM/edit#gid=0)
 
 ## 3, Paypal Business Claim  
   * The merchant id of Paypal is pat@comp.nus.edu.sg
@@ -26,13 +26,13 @@
 
 # Sandbox 
  * We publish the Sandbox page to try our demo without paying.
- https://APSEC2020.github.io/sandbox.html
+ https://ICECCS25th.github.io/sandbox.html
 
 # Google Spreadsheet
  
  |   |     safe-level     |   restrict-level   | C | ... |
 |---|:---------:|:-----:|:-:|:---:|
-| live | [safe-preview](https://docs.google.com/spreadsheets/d/1kOX0u3hczU38lWLAbAx17V-D50RUE0NfWiSrR1CiWl4/edit?usp=sharing) |  [restrict-preview](https://docs.google.com/spreadsheets/d/1RotMgZM3ZePnamsLFVhWNJK4QLSqk6ysz8CYTOLl_Xc/edit?usp=sharing)  |     |
+| live | [safe-preview](https://docs.google.com/spreadsheets/d/1rA1m1hJmUt8S8AowuTfkFv7a49s9mP40FZ2xlWLU1RM/edit#gid=0) |  [restrict-preview](https://docs.google.com/spreadsheets/d/1DEdinMJxkjkU6wIA2RUw8WhoJ98tBtB1CMeMgYLofHg/edit#gid=0)  |     |
 
 
 # Acknowdge 
