@@ -247,6 +247,44 @@
 </head>
 
 <body>
+
+    <script>
+function getBrowserName() {
+
+    if ( navigator.userAgent.indexOf("Edge") > -1 && navigator.appVersion.indexOf('Edge') > -1 ) {
+        return 'Edge';
+    }
+    else if( navigator.userAgent.indexOf("Opera") != -1 || navigator.userAgent.indexOf('OPR') != -1 )
+    {
+        return 'Opera';
+    }
+    else if( navigator.userAgent.indexOf("Chrome") != -1 )
+    {
+        return 'Chrome';
+    }
+    else if( navigator.userAgent.indexOf("Safari") != -1)
+    {
+        return 'Safari';
+    }
+    else if( navigator.userAgent.indexOf("Firefox") != -1 ) 
+    {
+        return 'Firefox';
+    }
+    else if( ( navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true ) ) //IF IE > 10
+    {
+        return 'IE';
+    }  
+    else 
+    {
+        return 'unknown';
+    }
+}
+if (getBrowserName()!="Chrome"){
+	
+	alert ("We only support the Chrome Browser, please use the Chrome!!!")
+}
+</script>
+
 <!-- <p align="center"><img src="images/geneva/icostLogo2012.png"></p> -->
 <div id="wrap">
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
