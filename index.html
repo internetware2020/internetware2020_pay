@@ -311,7 +311,7 @@ if (getBrowserName()!="Chrome"){
 					
 					<li><a href="https://formal-analysis.com/iceccs/2020/#dates">IMPORTANT DATES</a></li>
 					<li><a href="https://formal-analysis.com/iceccs/2020/#submission">SUBMIT</a></li>
-					<li><a href="https://formal-analysis.com/iceccs/2020/#workshops">WORKSHOPS</a></li>
+                   <!--					<li><a href="https://formal-analysis.com/iceccs/2020/#workshops">WORKSHOPS</a></li> -->
 					<li><a href="https://formal-analysis.com/iceccs/2020/#register">REGISTER</a></li>
 
 					<li><a href="https://formal-analysis.com/iceccs/2020/#venue">VENUE</a></li>
@@ -343,9 +343,9 @@ if (getBrowserName()!="Chrome"){
 
     <div class="alert alert-success" role="alert">
   <h4 class="alert-heading">Registration Now Open!</h4>
-  <p><b>Authors</b> of main conference and workshops: <b>0.01 SGD</b> </p>
+  <p><b>Authors</b> of main conference : <b>0.01 SGD</b> </p>
   <hr>
-  <p class="mb-0"><b> Non-author</b> Participants of main conference and workshops: <b>0.01 SGD</b> </p>
+  <p class="mb-0"><b> Non-author</b> Participants of main conference : <b>0.01 SGD</b> </p>
 </div>
 
 
@@ -500,7 +500,7 @@ if (getBrowserName()!="Chrome"){
 
 					<select class="form-control should_expire" type="text" id="ip_amount">
 						<option data-discount=1 value="0.01">Authors-0.01SGD</option>
-						<option data-discount=1 value="0.01">non-Authors-0.01SGD</option>
+						<option data-discount=1 value="0.03">non-Authors-0.01SGD</option>
                     </select>>
 
 					
@@ -588,10 +588,15 @@ if (getBrowserName()!="Chrome"){
 	  <script>
 
 	window. submit_google_form=function(pay_ref_str,pay_log_str){	  
-		const scriptURL ='https://www.wj2ai.com/proxy.php?csurl=https://script.google.com/macros/s/AKfycbxvwQ3rIyleQlCLMpO2tBaVUSIP4TZVGOR8LXy3SfYVa8yPKqI/exec'
+		const scriptURL ='https://conference.wj2ai.com/proxy.php?csurl=https://script.google.com/macros/s/AKfycbxvwQ3rIyleQlCLMpO2tBaVUSIP4TZVGOR8LXy3SfYVa8yPKqI/exec'
 
-        const sc_safe = "https://www.wj2ai.com/proxy.php?csurl=https://script.google.com/macros/s/AKfycbws5j3Y1HSHATUuBoUjjG4yl6c0HTZYm_pIP3sjcN9sTtjZWUXZ/exec"
-        const notify_page = "./rece.html"
+        const sc_safe = "https://conference.wj2ai.com/proxy.php?csurl=https://script.google.com/macros/s/AKfycbws5j3Y1HSHATUuBoUjjG4yl6c0HTZYm_pIP3sjcN9sTtjZWUXZ/exec"
+
+
+
+        const redis_page = "https://conference.wj2ai.com/redis.php"
+        const notify_page = "rece.html"
+
 
 
 		function showLoadingIndicator () {
@@ -651,32 +656,35 @@ if (getBrowserName()!="Chrome"){
       setform_field(v.name)
     });
 
+        $.ajax({
+           type: "POST",
+           url: redis_page,
+           data: $("#paypalform").first().serialize(),
+             success: function(response){ 
+             },
+             error: function (xhr, textStatus, error) {
+             }
+         });
 
         $.ajax({
            type: "POST",
-           url: sc_safe,
+           url: scriptURL,
            data: $("#paypalform").first().serialize(),
              success: function(response){ 
-//                 console.log("safe...")
- //               console.log(response)
              },
              error: function (xhr, textStatus, error) {
-   //              console.log("safe...")
-     //           console.log(textStatus)
              }
-
          });
+
 
 		$.ajax({
            type: "POST",
-           url: scriptURL,
+           url:  sc_safe,
            data: $("#paypalform").first().serialize(), // serializes the form's elements.
            success: function(response)
            {
                  var data_str=$("#paypalform").first().serialize()
                  var notify_page_go = notify_page +"?"+ data_str
-//                 console.log("notify_page_go",notify_page_go,data_str,notify_page)
-//               showSuccessMessage(response); // show response from the php script.
                               window.setTimeout( function(){
                                    window.location =notify_page_go ;
                                }, 1000 );
@@ -684,19 +692,13 @@ if (getBrowserName()!="Chrome"){
                  
            },
            error: function (xhr, textStatus, error) {
-//                var vv=textStatus + "-->submit google spreadsheet error!"
-
-  //      				showErrorMessage(vv)
-   //                     console.log('An error occurred.');
-   //                     console.log(xhr);
-    //                },
 
                var data_str=$("#paypalform").first().serialize()
                var notify_page_go = notify_page +"?"+ data_str;
                 window.setTimeout( function(){
                      window.location =notify_page_go ;
                  }, 1000 );
-          },
+              },
 
     		 });
 		 
@@ -741,6 +743,9 @@ paypal.Button.render({
                         currency: 'SGD'
                     },
                     //custom: purchaseOrderNumber
+                    note_to_payee:"iceccs2020",
+                    note_to_payer:"iceccs2020",
+
                 }
             ]
         });
