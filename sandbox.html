@@ -248,42 +248,7 @@
 
 <body>
 
-    <script>
-function getBrowserName() {
 
-    if ( navigator.userAgent.indexOf("Edge") > -1 && navigator.appVersion.indexOf('Edge') > -1 ) {
-        return 'Edge';
-    }
-    else if( navigator.userAgent.indexOf("Opera") != -1 || navigator.userAgent.indexOf('OPR') != -1 )
-    {
-        return 'Opera';
-    }
-    else if( navigator.userAgent.indexOf("Chrome") != -1 )
-    {
-        return 'Chrome';
-    }
-    else if( navigator.userAgent.indexOf("Safari") != -1)
-    {
-        return 'Safari';
-    }
-    else if( navigator.userAgent.indexOf("Firefox") != -1 ) 
-    {
-        return 'Firefox';
-    }
-    else if( ( navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true ) ) //IF IE > 10
-    {
-        return 'IE';
-    }  
-    else 
-    {
-        return 'unknown';
-    }
-}
-if (getBrowserName()!="Chrome"){
-	
-	alert ("We only support the Chrome Browser, please use the Chrome!!!")
-}
-</script>
 
 <!-- <p align="center"><img src="images/geneva/icostLogo2012.png"></p> -->
 <div id="wrap">
@@ -339,6 +304,54 @@ if (getBrowserName()!="Chrome"){
 
 <div class="container ">
 
+
+<div class="alert alert-danger alert-dismissible fade " role="alert" id="ie-alert">
+  <strong> Compatibility Warning!</strong>  Please use Chrome/Safari to access this site. Some key features do not work in browsers other than Chrome.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+    <script>
+function getBrowserName() {
+
+    if ( navigator.userAgent.indexOf("Edge") > -1 && navigator.appVersion.indexOf('Edge') > -1 ) {
+        return 'Edge';
+    }
+    else if( navigator.userAgent.indexOf("Opera") != -1 || navigator.userAgent.indexOf('OPR') != -1 )
+    {
+        return 'Opera';
+    }
+    else if( navigator.userAgent.indexOf("Chrome") != -1 )
+    {
+        return 'Chrome';
+    }
+    else if( navigator.userAgent.indexOf("Safari") != -1)
+    {
+        return 'Safari';
+    }
+    else if( navigator.userAgent.indexOf("Firefox") != -1 ) 
+    {
+        return 'Firefox';
+    }
+    else if( ( navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true ) ) //IF IE > 10
+    {
+        return 'IE';
+    }  
+    else 
+    {
+        return 'unknown';
+    }
+}
+</script>
+<script type="text/javascript">
+  
+$( document ).ready(function() {
+    if (getBrowserName()!="Chrome"){ 
+       $("#ie-alert").addClass("in");
+    }
+  });
+</script>
 
 
     <div class="alert alert-success" role="alert">
