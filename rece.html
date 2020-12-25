@@ -200,37 +200,53 @@ position: absolute;
             
 
 
-            <tr class="item last toggel1">
+            <tr class="item last toggel2">
                 <td>
-                    Authors of main conference and workshops<br/>(ICECCS2020 Conference Registration Fee)
+                    Virtual Meeting (Authors) of main conference and workshops<br/>(ICECCS2020 Conference Registration Fee)
                 </td>
                 
                 <td>
                     $300.00 SGD
                 </td>
             </tr>
-            <tr class="item last toggel2">
+            <tr class="item last toggel1">
                 <td>
-                    Non-author Participants of main conference and workshops<br/>(ICECCS2020 Conference Registration Fee)
+                    Virtual Meeting (Non-author) Participants of main conference and workshops<br/>(ICECCS2020 Conference Registration Fee)
                 </td>
                 
                 <td>
                     $100.00 SGD
                 </td>
             </tr>
+            <tr class="item last toggel3">
+                <td>
+                    Physical Meeting Participants of main conference and workshops<br/>(ICECCS2020 Conference Registration Fee)
+                </td>
+                
+                <td>
+                    $900.00 SGD
+                </td>
+            </tr>
             
-            <tr class="total toggel1">
+            <tr class="total toggel2">
                 <td></td>
                 
                 <td>
                    Total: $300.00 SGD
                 </td>
             </tr>            
-            <tr class="total toggel2">
+            <tr class="total toggel1">
                 <td></td>
                 
                 <td>
                    Total: $100.00 SGD
+                </td>
+            </tr>
+            <tr class="total toggel3">
+                <td></td>
+                
+                <td>
+                   Total: $900.00 SGD
                 </td>
             </tr>
 
@@ -240,7 +256,7 @@ position: absolute;
                     <table>
                         <tr>
                             <td>
-                                This is to acknowledge that the amount of SGD <b class="toggel1">300</b><b class="toggel2">100</b> has been paid by <b data="first_name" style = "text-transform:capitalize;display:inline-block;"></b> <b data="last_name" style = "text-transform:capitalize;display:inline-block;"></b>.<br>
+                                This is to acknowledge that the amount of SGD <b class="toggel2">300</b><b class="toggel1">100</b><b class="toggel3">900</b> has been paid by <b data="first_name" style = "text-transform:capitalize;display:inline-block;"></b> <b data="last_name" style = "text-transform:capitalize;display:inline-block;"></b>.<br>
                             </td>
                             <td>
                             </td>
@@ -298,17 +314,25 @@ position: absolute;
       }
    }
 
-   function toggle(is_hidden=false){
-         if (is_hidden){
-            var hidden="toggel2"
-         }else{
+   function toggle(amount_val){
+       console.log(amount_val<=300,amount_val>100,amount_val>=900 ,"===!<<>>>")
+       if (amount_val<=100){
             var hidden="toggel1"
-         }
-        var els = document.getElementsByClassName(hidden);
-        Array.prototype.forEach.call(els, function(el) {
-       // Do stuff here
-            el.style.display="none";
-         });
+       }else if (amount_val>=900){
+            var hidden="toggel3"
+       }
+       else{
+            var hidden="toggel2"
+       }
+       ["toggel1","toggel2","toggel3"] .forEach(ele =>{
+           if (ele !=hidden){
+           console.log("find ...", ele)
+            var els = document.getElementsByClassName(ele);
+            Array.prototype.forEach.call(els, function(el) {
+                el.style.display="none";
+             });
+           }
+        })
    }
 
    function render_date(){
@@ -319,28 +343,24 @@ position: absolute;
 
 
 
-</script>
-    <script type="text/javascript">
         var btnPrint=function () {
             $("#dvContainer").show();
 //    $("#printarea").show();
     window.print();
 
         }
-    </script>
-
-    <script type="text/javascript">
 
       $( document ).ready(
             function(){
                render_date();
                console.log(getParamsAsObject);
                console.log(getParamsAsObject.amount,parseInt(getParamsAsObject["amount"]),"!!")
-               if (parseInt(getParamsAsObject.amount)==300){
+                toggle(parseInt(getParamsAsObject.amount)) 
+/*               if (parseInt(getParamsAsObject.amount)==300){
                   toggle(true)
                }else{
                   toggle(false)
-               } 
+               } */
 
                 for (var k in getParamsAsObject) {
                     if (getParamsAsObject.hasOwnProperty(k)) {
