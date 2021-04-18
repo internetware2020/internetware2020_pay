@@ -201,7 +201,7 @@ position: absolute;
 
             <tr class="item last toggel2">
                 <td>
-                    Virtual Meeting (Authors) of main conference and workshops<br/>(Internetware2020 Conference Registration Fee)
+                    Virtual Meeting (Authors) of main conference<br/>(Internetware2020 Conference Registration Fee)
                 </td>
                 <td>
                     $300.00 SGD
@@ -209,7 +209,7 @@ position: absolute;
             </tr>
             <tr class="item last toggel1">
                 <td>
-                    Virtual Meeting (Non-author) Participants of main conference and workshops<br/>(Internetware2020 Conference Registration Fee)
+                    Virtual Meeting (Non-author) Participants of main conference<br/>(Internetware2020 Conference Registration Fee)
                 </td>
                 
                 <td>
@@ -218,11 +218,11 @@ position: absolute;
             </tr>
             <tr class="item last toggel3">
                 <td>
-                    Physical Meeting Participants of main conference and workshops<br/>(Internetware2020 Conference Registration Fee)
+                    Virtual Meeting (Student of Non-Author or ACM/CCF Members) Participants of main conference<br/>(Internetware2020 Conference Registration Fee)
                 </td>
                 
                 <td>
-                    $900.00 SGD
+                    $50.00 SGD
                 </td>
             </tr>
             
@@ -244,7 +244,7 @@ position: absolute;
                 <td></td>
                 
                 <td>
-                   Total: $900.00 SGD
+                   Total: $50.00 SGD
                 </td>
             </tr>
 
@@ -254,7 +254,7 @@ position: absolute;
                     <table>
                         <tr>
                             <td>
-                                This is to acknowledge that the amount of SGD <b class="toggel2">300</b><b class="toggel1">100</b><b class="toggel3">900</b> has been paid by <b data="first_name" style = "text-transform:capitalize;display:inline-block;"></b> <b data="last_name" style = "text-transform:capitalize;display:inline-block;"></b>.<br>
+                                This is to acknowledge that the amount of SGD <b class="toggel2">300</b><b class="toggel1">100</b><b class="toggel3">50</b> has been paid by <b data="first_name" style = "text-transform:capitalize;display:inline-block;"></b> <b data="last_name" style = "text-transform:capitalize;display:inline-block;"></b>.<br>
                             </td>
                             <td>
                             </td>
@@ -313,14 +313,14 @@ position: absolute;
    }
 
    function toggle(amount_val){
-       console.log(amount_val<=300,amount_val>100,amount_val>=900 ,"===!<<>>>")
-       if (amount_val<=100){
-            var hidden="toggel1"
-       }else if (amount_val>=900){
+       console.log(amount_val<=300,amount_val>100,amount_val<=50 ,"===!<<>>>")
+       if (amount_val<=50){
             var hidden="toggel3"
+       }else if (amount_val>=300){
+            var hidden="toggel2"
        }
        else{
-            var hidden="toggel2"
+            var hidden="toggel1"
        }
        ["toggel1","toggel2","toggel3"] .forEach(ele =>{
            if (ele !=hidden){
